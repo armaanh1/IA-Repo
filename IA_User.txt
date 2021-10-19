@@ -1,0 +1,28 @@
+USER CREATED: 
+  Date: 2021-10-18 at 10:20:00 CDT
+  Mac Address: Not connected to the internet, unable to get mac-address
+  About User: 
+      Address: admin, admin, tx 77389
+      First Name: admin
+      Middle Name: 
+      Last Name: admin
+      User ID: 170419
+      User Password: admin
+      Birth Month: 5
+      Birth Day: 5
+      Birth Year: 1990
+      User SSN: 0
+USER CREATED: 
+  Date: 2021-10-18 at 10:34:23 CDT
+  Mac Address: Not connected to the internet, unable to get mac-address
+  About User: 
+      Address: admin, admin, TX 77389
+      First Name: admin
+      Middle Name: 
+      Last Name: admin
+      User ID: 279233
+      User Password: admin
+      Birth Month: 5
+      Birth Day: 5
+      Birth Year: 1990
+      User SSN: 0
