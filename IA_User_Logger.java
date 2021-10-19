@@ -98,7 +98,7 @@ public class IA_User_Logger implements Serializable{
             // id authentication fails and connected to the internet
             if(isConnected)
             {
-                bw.write("AUTHENTICATION FAILED: DEVICE SIGNATURE DOES NO MATCH THAT OF USER \n");
+                bw.write("AUTHENTICATION FAILED: DEVICE SIGNATURE DOES NOT MATCH THAT OF USER \n");
                 bw.write("  Date: " + formatter.format(date) + "\n");
                 bw.write("  User: " + user.getFirstName() + " " + user.getLastName() + "\n");
                 bw.write("  User ID: " + user.getUserID());
@@ -115,7 +115,7 @@ public class IA_User_Logger implements Serializable{
             // id authentication fails and not connected to the internet
             else 
             {
-                bw.write("AUTHENTICATION FAILED: DEVICE SIGNATURE DOES NO MATCH THAT OF USER \n");
+                bw.write("AUTHENTICATION FAILED: DEVICE SIGNATURE DOES NOT MATCH THAT OF USER \n");
                 bw.write("  Date: " + formatter.format(date) + "\n");
                 bw.write("  User: " + user.getFirstName() + " " + user.getLastName() + "\n");
                 bw.write("  User ID: " + user.getUserID());

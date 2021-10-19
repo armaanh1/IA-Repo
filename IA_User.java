@@ -58,8 +58,6 @@ public class IA_User implements Serializable{
     private int minID = 111111;
     private Boolean hasInternetConnection = true;
 
-    FileWriter fw = new FileWriter("IA_User.txt", true);
-    BufferedWriter bw = new BufferedWriter(fw);
     SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
     Date date = new Date(System.currentTimeMillis());
 
@@ -322,10 +320,13 @@ public class IA_User implements Serializable{
         userPosition = newUserPosition;
     }
 
-    public void writeUser(IA_User iau) throws IOException
+    public void writeUser() throws IOException
     {
 
-        if(iau.getMiddleName() == null)
+        FileWriter fw = new FileWriter("IA_User.txt", true);
+        BufferedWriter bw = new BufferedWriter(fw);
+
+        if(this.getMiddleName() == null)
         {
             bw.write("USER CREATED: \n");
             bw.write("  Date: " + formatter.format(date) + "\n");

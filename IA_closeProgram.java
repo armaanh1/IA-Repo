@@ -7,8 +7,7 @@ import java.util.HashMap;
 public class IA_closeProgram implements Serializable
 {
     
-    private FileOutputStream fileout = new FileOutputStream("IA_userINFO.ser");
-    private ObjectOutputStream objectOut = new ObjectOutputStream(fileout);
+     
 
     public IA_closeProgram() throws Exception
     {
@@ -20,10 +19,13 @@ public class IA_closeProgram implements Serializable
     public void close(HashMap<Integer, IA_User> hashToSerialize) throws IOException
     {
 
+    FileOutputStream fileout = new FileOutputStream("IA_userINFO.ser");
+    ObjectOutputStream objectOut = new ObjectOutputStream(fileout);
+
         System.out.println(hashToSerialize.toString());
         
         objectOut.writeObject(hashToSerialize);
-        objectOut.flush();
+        fileout.close();
         objectOut.close();
         
     }

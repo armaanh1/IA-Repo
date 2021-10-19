@@ -18,6 +18,7 @@ public class IA_reLaunch implements Serializable{
     public void launch() throws Exception
     {
 
+        @SuppressWarnings("unchecked")
         HashMap<Integer, IA_User> deSerializaHashMap = (HashMap<Integer, IA_User>)objectIn.readObject();
 
         IA_User.changeHash(deSerializaHashMap);
