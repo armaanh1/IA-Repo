@@ -124,3 +124,17 @@ USER CREATED:
       Birth Day: 5
       Birth Year: 1990
       User SSN: 0
+USER CREATED: 
+  Date: 2021-10-19 at 10:39:49 CDT
+  Mac Address: Not connected to the internet, unable to get mac-address
+  About User: 
+      Address: admin, admin, TX 77389
+      First Name: admin
+      Middle Name: 
+      Last Name: admin
+      User ID: 908912
+      User Password: admin
+      Birth Month: 5
+      Birth Day: 5
+      Birth Year: 1990
+      User SSN: 0
