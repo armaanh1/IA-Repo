@@ -1,8 +1,5 @@
 import java.io.Serializable;
 
-/**
- * IA_Project
- */
 public class IA_Project implements Serializable{
 
     public static Boolean guiIsActive = false;
@@ -14,4 +11,5 @@ public class IA_Project implements Serializable{
         gui.runProgram();
 
     }
+
 }
