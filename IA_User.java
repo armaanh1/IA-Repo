@@ -8,6 +8,7 @@ import java.text.SimpleDateFormat;
 import java.util.HashMap;
 
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.Serializable;
 
 
@@ -119,43 +120,6 @@ public class IA_User implements Serializable{
             macaddress = null;
         }
 
-        bw.write("USER CREATED: \n");
-        bw.write("  Date: " + formatter.format(date) + "\n");
-        if(hasInternetConnection)
-        {
-
-            bw.write("  MAC Address: " + macaddress + "\n");
-        
-        }
-        else
-        {
-
-            bw.write("  Mac Address: Not connected to the internet, unable to get mac-address\n");
-
-        }
-        bw.write("  About User: \n");
-        bw.write("      Address: " + userAddress + "\n");
-        bw.write("      First Name: " + firstName + "\n");
-
-        if (this.middleName == null)
-        {
-
-            bw.write("      Middle Name: " + "" + "\n");
-        
-        }
-
-        bw.write("      Last Name: " + lastName + "\n");
-        bw.write("      User ID: " + userIDNumber + "\n");
-        bw.write("      User Password: " + userPassword + "\n");
-        bw.write("      Birth Month: " + birthMonth + "\n"); 
-        bw.write("      Birth Day: " + birthDay + "\n"); 
-        bw.write("      Birth Year: " + birthYear + "\n"); 
-        bw.write("      User SSN: " + socialSecurityNumber + "\n");
-        bw.flush();
-
-        bw.flush();
-        bw.close();
-
 
         Users.put(userIDNumber, this);
         System.out.println(Users.toString());
@@ -218,45 +182,6 @@ public class IA_User implements Serializable{
             userIDNumber = (int)Math.floor(Math.random()*(maxID-minID+1)+minID);
         }
 
-        bw.write("USER CREATED: \n");
-        bw.write("  Date: " + formatter.format(date) + "\n");
-        if(hasInternetConnection)
-        {
-
-            bw.write("  MAC Address: " + macaddress + "\n");
-
-        }
-
-        else
-        {
-
-            bw.write("  Mac Address: Not connected to the internet, unable to get mac-address \n");
-        
-        }
-
-        bw.write("  About User: \n");
-        bw.write("      Address: " + userAddress + "\n");
-        bw.write("      First Name: " + firstName + "\n");
-
-        if (this.middleName != null)
-        {
-
-            bw.write("      Middle Name: " + middleName + "\n");
-        
-        }
-
-        bw.write("      Last Name: " + lastName + "\n");
-        bw.write("      User ID: " + userIDNumber + "\n");
-        bw.write("      User Password: " + userPassword + "\n");
-        bw.write("      Birth Month: " + birthMonth + "\n"); 
-        bw.write("      Birth Day: " + birthDay + "\n"); 
-        bw.write("      Birth Year: " + birthYear + "\n"); 
-        bw.write("      User SSN: " + socialSecurityNumber + "\n");
-        bw.flush();
-
-        bw.flush();
-        bw.close();     
-
         Users.put(userIDNumber, this);
         System.out.println(Users.toString());
         
@@ -295,7 +220,7 @@ public class IA_User implements Serializable{
         }
         else
         {
-            return "";
+            return null;
         }
     }
     
@@ -395,6 +320,95 @@ public class IA_User implements Serializable{
     public void changeUserPosition(String newUserPosition)
     {
         userPosition = newUserPosition;
+    }
+
+    public void writeUser(IA_User iau) throws IOException
+    {
+
+        if(iau.getMiddleName() == null)
+        {
+            bw.write("USER CREATED: \n");
+            bw.write("  Date: " + formatter.format(date) + "\n");
+            if(hasInternetConnection)
+            {
+
+                bw.write("  MAC Address: " + macaddress + "\n");
+            
+            }
+            else
+            {
+
+                bw.write("  Mac Address: Not connected to the internet, unable to get mac-address\n");
+
+            }
+            bw.write("  About User: \n");
+            bw.write("      Address: " + userAddress + "\n");
+            bw.write("      First Name: " + firstName + "\n");
+
+            if (this.middleName == null)
+            {
+
+                bw.write("      Middle Name: " + "" + "\n");
+            
+            }
+
+            bw.write("      Last Name: " + lastName + "\n");
+            bw.write("      User ID: " + userIDNumber + "\n");
+            bw.write("      User Password: " + userPassword + "\n");
+            bw.write("      Birth Month: " + birthMonth + "\n"); 
+            bw.write("      Birth Day: " + birthDay + "\n"); 
+            bw.write("      Birth Year: " + birthYear + "\n"); 
+            bw.write("      User SSN: " + socialSecurityNumber + "\n");
+            bw.flush();
+
+            bw.flush();
+            bw.close();
+        }
+
+        else
+        {
+
+            bw.write("USER CREATED: \n");
+            bw.write("  Date: " + formatter.format(date) + "\n");
+            if(hasInternetConnection)
+            {
+
+                bw.write("  MAC Address: " + macaddress + "\n");
+
+            }
+
+            else
+            {
+
+                bw.write("  Mac Address: Not connected to the internet, unable to get mac-address \n");
+            
+            }
+
+            bw.write("  About User: \n");
+            bw.write("      Address: " + userAddress + "\n");
+            bw.write("      First Name: " + firstName + "\n");
+
+            if (this.middleName != null)
+            {
+
+                bw.write("      Middle Name: " + middleName + "\n");
+            
+            }
+
+            bw.write("      Last Name: " + lastName + "\n");
+            bw.write("      User ID: " + userIDNumber + "\n");
+            bw.write("      User Password: " + userPassword + "\n");
+            bw.write("      Birth Month: " + birthMonth + "\n"); 
+            bw.write("      Birth Day: " + birthDay + "\n"); 
+            bw.write("      Birth Year: " + birthYear + "\n"); 
+            bw.write("      User SSN: " + socialSecurityNumber + "\n");
+            bw.flush();
+
+            bw.flush();
+            bw.close();     
+
+        }
+
     }
 
     // boolean method to return authentication of login

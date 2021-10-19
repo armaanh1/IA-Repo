@@ -5,7 +5,7 @@ import java.util.HashMap;
 
 public class IA_reLaunch implements Serializable{
     
-    FileInputStream fileIn = new FileInputStream("IA_userINFO.txt");
+    FileInputStream fileIn = new FileInputStream("IA_userINFO.ser");
     ObjectInputStream objectIn = new ObjectInputStream(fileIn);
 
     
@@ -17,7 +17,7 @@ public class IA_reLaunch implements Serializable{
 
     public void launch() throws Exception
     {
-        
+
         HashMap<Integer, IA_User> deSerializaHashMap = (HashMap<Integer, IA_User>)objectIn.readObject();
 
         IA_User.changeHash(deSerializaHashMap);
