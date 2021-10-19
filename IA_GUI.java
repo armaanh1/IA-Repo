@@ -93,8 +93,8 @@ public class IA_GUI implements ActionListener, ItemListener, WindowListener, Ser
 
         IA_Project.guiIsActive = true;
 
-        IA_reLaunch rl = new IA_reLaunch();
-        rl.launch();
+        // IA_reLaunch rl = new IA_reLaunch();
+        // rl.launch();
 
         frame.setSize((int)screenWidth-1, (int)screenHeight-1);
         frame.setResizable(true);
