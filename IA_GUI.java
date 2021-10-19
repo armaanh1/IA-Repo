@@ -93,8 +93,8 @@ public class IA_GUI implements ActionListener, ItemListener, WindowListener, Ser
 
         IA_Project.guiIsActive = true;
 
-        // IA_reLaunch rl = new IA_reLaunch();
-        // rl.launch();
+        IA_reLaunch rl = new IA_reLaunch();
+        rl.launch();
 
         frame.setSize((int)screenWidth-1, (int)screenHeight-1);
         frame.setResizable(true);
@@ -729,10 +729,13 @@ public class IA_GUI implements ActionListener, ItemListener, WindowListener, Ser
         if(e.getSource() == closeGui)
         {
             IA_closeProgram cpr;
-            try {
+            try 
+            {
                 cpr = new IA_closeProgram();
                 cpr.close(IA_User.getUserList());
-            } catch (Exception e1) {
+            } 
+            catch (Exception e1) 
+            {
                 e1.printStackTrace();
             }
         }
