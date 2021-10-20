@@ -437,23 +437,6 @@ public class IA_User implements Serializable{
         }
     }
 
-    public static Boolean checkPassword(IA_User check, String pass)
-    {
-
-        String checkPass = check.getUserPassword();
-
-        if(pass == checkPass)
-        {
-            return true;
-        }
-
-        else
-        {
-            return false;
-        }
-    }
-
-
     // the two methods below are used to serialize and deserialize the hash map
     public static HashMap<Integer, IA_User> getUserList()
     {

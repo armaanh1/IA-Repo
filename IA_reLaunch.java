@@ -5,9 +5,6 @@ import java.util.HashMap;
 
 public class IA_reLaunch implements Serializable{
     
-    FileInputStream fileIn = new FileInputStream("IA_userINFO.ser");
-    ObjectInputStream objectIn = new ObjectInputStream(fileIn);
-
     
 
     public IA_reLaunch() throws Exception
@@ -18,17 +15,28 @@ public class IA_reLaunch implements Serializable{
     public void launch() throws Exception
     {
 
-        @SuppressWarnings("unchecked")
-        HashMap<Integer, IA_User> deSerializaHashMap = (HashMap<Integer, IA_User>)objectIn.readObject();
+        FileInputStream fileIn = new FileInputStream("IA_userINFO.ser");
+        ObjectInputStream objectIn = new ObjectInputStream(fileIn);
 
-        IA_User.changeHash(deSerializaHashMap);
-        System.out.println("Desiarilzed");
-        System.out.println(deSerializaHashMap.toString());
-        System.out.println("HashMap newly updated");
-        System.out.println(IA_User.Users.toString());
+        @SuppressWarnings("unchecked")
+        HashMap<Integer, IA_User> deSerializaHashMapUser = (HashMap<Integer, IA_User>)objectIn.readObject();
+
+        IA_User.changeHash(deSerializaHashMapUser);
 
         fileIn.close();
         objectIn.close();
+
+
+        FileInputStream fileInput = new FileInputStream("IA_adminstratorINFO.ser");
+        ObjectInputStream objectInput = new ObjectInputStream(fileInput);
+
+        @SuppressWarnings("unchecked")
+        HashMap<String, IA_SystemAdministrator> deSerializeHashMapAdministrator= (HashMap<String, IA_SystemAdministrator>)objectInput.readObject();
+ 
+        IA_SystemAdministrator.updateHash(deSerializeHashMapAdministrator);
+
+        fileInput.close();
+        objectInput.close();
 
     }
 }

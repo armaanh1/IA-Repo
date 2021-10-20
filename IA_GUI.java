@@ -105,7 +105,7 @@ public class IA_GUI implements ActionListener, ItemListener, WindowListener, Ser
 
         frame.setSize((int)screenWidth-1, (int)screenHeight-1);
         frame.setResizable(true);
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         frame.add(loginContentPanel);
 
@@ -800,7 +800,7 @@ public class IA_GUI implements ActionListener, ItemListener, WindowListener, Ser
             try 
             {
                 cpr = new IA_closeProgram();
-                cpr.close(IA_User.getUserList());
+                cpr.close();
             } 
             catch (Exception e1) 
             {
@@ -1051,9 +1051,11 @@ public class IA_GUI implements ActionListener, ItemListener, WindowListener, Ser
         IA_closeProgram c;
         try {
             c = new IA_closeProgram();
-            c.close(IA_User.getUserList());
+            c.close();
+            System.out.println("closing serial works");
         } catch (Exception e1) {
             e1.printStackTrace();
+            System.out.println("we got here?");
         }
 
         
@@ -1061,12 +1063,32 @@ public class IA_GUI implements ActionListener, ItemListener, WindowListener, Ser
 
     @Override
     public void windowClosed(WindowEvent e) {
-        
+        IA_closeProgram c;
+        try {
+            c = new IA_closeProgram();
+            c.close();
+            System.out.println("closing serial works");
+            System.out.println("line 1071");
+        } catch (Exception e1) {
+            e1.printStackTrace();
+            System.out.println("we got here?");
+            System.out.println("line 1075");
+        }
     }
 
     @Override
     public void windowIconified(WindowEvent e) {
-        
+        IA_closeProgram c;
+        try {
+            c = new IA_closeProgram();
+            c.close();
+            System.out.println("closing serial works");
+            System.out.println("line 1086");
+        } catch (Exception e1) {
+            e1.printStackTrace();
+            System.out.println("we got here?");
+            System.out.println("line 1090");
+        }
     }
 
     @Override
@@ -1081,7 +1103,17 @@ public class IA_GUI implements ActionListener, ItemListener, WindowListener, Ser
 
     @Override
     public void windowDeactivated(WindowEvent e) {
-        
+        IA_closeProgram c;
+        try {
+            c = new IA_closeProgram();
+            c.close();
+            System.out.println("closing serial works");
+            System.out.println("line 1111");
+        } catch (Exception e1) {
+            e1.printStackTrace();
+            System.out.println("we got here?");
+            System.out.println("line 1115");
+        }
     }
 
 }

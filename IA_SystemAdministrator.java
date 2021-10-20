@@ -47,4 +47,14 @@ public class IA_SystemAdministrator
     
     }
 
+    public static HashMap<String, IA_SystemAdministrator> getAdministratorList()
+    {
+        return SystemAdministrators;
+    }
+
+    public static void updateHash(HashMap<String, IA_SystemAdministrator> hashMapToUpdateAdmins)
+    {
+        SystemAdministrators = hashMapToUpdateAdmins;
+    }
+
 }

@@ -2,7 +2,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
-import java.util.HashMap;
 
 public class IA_closeProgram implements Serializable
 {
@@ -16,17 +15,26 @@ public class IA_closeProgram implements Serializable
 
     }
 
-    public void close(HashMap<Integer, IA_User> hashToSerialize) throws IOException
+    public void close() throws IOException
     {
 
-    FileOutputStream fileout = new FileOutputStream("IA_userINFO.ser");
-    ObjectOutputStream objectOut = new ObjectOutputStream(fileout);
+        FileOutputStream fileout = new FileOutputStream("IA_userINFO.ser");
+        ObjectOutputStream objectOut = new ObjectOutputStream(fileout);
 
-        System.out.println(hashToSerialize.toString());
+        System.out.println(IA_User.Users.toString());
         
-        objectOut.writeObject(hashToSerialize);
+        objectOut.writeObject(IA_User.Users);
         fileout.close();
         objectOut.close();
+
+        FileOutputStream fileOutput = new FileOutputStream("administratorINFO.ser");
+        ObjectOutputStream objectOutput = new ObjectOutputStream(fileOutput);
+
+        System.out.println(IA_SystemAdministrator.SystemAdministrators);
+
+        objectOutput.writeObject(IA_SystemAdministrator.SystemAdministrators);
+        fileOutput.close();
+        objectOutput.close();
         
     }
 

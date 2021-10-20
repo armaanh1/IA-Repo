@@ -1,6 +1,7 @@
 import java.io.Serializable;
 
-public class IA_Project implements Serializable{
+public class IA_Project implements Serializable
+{
 
     public static Boolean guiIsActive = false;
 
