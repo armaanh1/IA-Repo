@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.util.HashMap;
 
-public class IA_SystemAdministrator
+public class IA_SystemAdministrator implements Serializable
 {
 
     public static HashMap<String, IA_SystemAdministrator> SystemAdministrators = new HashMap<>();

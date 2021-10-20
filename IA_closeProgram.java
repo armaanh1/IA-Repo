@@ -27,7 +27,7 @@ public class IA_closeProgram implements Serializable
         fileout.close();
         objectOut.close();
 
-        FileOutputStream fileOutput = new FileOutputStream("administratorINFO.ser");
+        FileOutputStream fileOutput = new FileOutputStream("IA_administratorINFO.ser");
         ObjectOutputStream objectOutput = new ObjectOutputStream(fileOutput);
 
         System.out.println(IA_SystemAdministrator.SystemAdministrators);

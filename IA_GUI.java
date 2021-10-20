@@ -100,8 +100,10 @@ public class IA_GUI implements ActionListener, ItemListener, WindowListener, Ser
        System.out.println(IA_SystemAdministrator.SystemAdministrators.toString());
        System.out.println(IA_SystemAdministrator.SystemAdministrators.keySet());
 
-        // IA_reLaunch rl = new IA_reLaunch();
-        // rl.launch();
+       frame.addWindowListener(this);
+
+        IA_reLaunch rl = new IA_reLaunch();
+        rl.launch();
 
         frame.setSize((int)screenWidth-1, (int)screenHeight-1);
         frame.setResizable(true);
@@ -1056,6 +1058,7 @@ public class IA_GUI implements ActionListener, ItemListener, WindowListener, Ser
         } catch (Exception e1) {
             e1.printStackTrace();
             System.out.println("we got here?");
+            System.out.println("line 1061");
         }
 
         
