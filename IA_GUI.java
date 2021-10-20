@@ -93,6 +93,13 @@ public class IA_GUI implements ActionListener, ItemListener, WindowListener, Ser
 
         IA_Project.guiIsActive = true;
 
+        if(IA_SystemAdministrator.SystemAdministrators.isEmpty())
+        {
+            new IA_SystemAdministrator("defaultpassword");
+        }
+       System.out.println(IA_SystemAdministrator.SystemAdministrators.toString());
+       System.out.println(IA_SystemAdministrator.SystemAdministrators.keySet());
+
         // IA_reLaunch rl = new IA_reLaunch();
         // rl.launch();
 
@@ -553,16 +560,16 @@ public class IA_GUI implements ActionListener, ItemListener, WindowListener, Ser
         if(createNewUserNumberOfPositionsChecked > 1)
         {
             JOptionPane.showMessageDialog(newUserContentPanel,
-            "Sorry, this password does not match what is stored with this account.",
-            "Password Does Not Match", JOptionPane.PLAIN_MESSAGE);
+            "You have selected more than one employee position, please click the \"ok\" button, and select only one option.",
+            "More Than 1 Position Selected", JOptionPane.PLAIN_MESSAGE);
         }
 
         else if(createNewUserNumberOfPositionsChecked == 0)
         {
 
             JOptionPane.showMessageDialog(newUserContentPanel,
-            "Sorry, this password does not match what is stored with this account.",
-            "Password Does Not Match", JOptionPane.PLAIN_MESSAGE);
+            "You have selected 0 employee positions. If the position you are wanting to select is not available, please contact your system administrator.",
+            "No Postion Selected", JOptionPane.PLAIN_MESSAGE);
 
         }
         else
@@ -635,23 +642,42 @@ public class IA_GUI implements ActionListener, ItemListener, WindowListener, Ser
         
             try
             {
+                
                 if(IA_User.Users.containsKey(Integer.parseInt(userIDInput)))
                 {
-                
-                
+            
+                    if(userPasswordInput.equals(IA_User.Users.get(Integer.parseInt(userIDInput)).getUserPassword()))
+                    {
+                        mainScreen();
+                    }
+                    
+                    else
+                    {
+                        JOptionPane.showMessageDialog(loginContentPanel,
+                        "Sorry, this password does not match what is stored with this account.",
+                        "Password Does Not Match", JOptionPane.PLAIN_MESSAGE);
+                    }
 
-                        if(userPasswordInput.equals(IA_User.Users.get(Integer.parseInt(userIDInput)).getUserPassword()))
-                        {
-                            mainScreen();
-                        }
-                        
-                        else
-                        {
-                            JOptionPane.showMessageDialog(loginContentPanel,
-                            "Sorry, this password does not match what is stored with this account.",
-                            "Password Does Not Match", JOptionPane.PLAIN_MESSAGE);
-                            System.out.println("line 649");
-                        }
+                }
+
+                else if(IA_SystemAdministrator.SystemAdministrators.containsKey(userIDInput))
+                {
+
+                    if(userIDInput.equals(IA_SystemAdministrator.SystemAdministrators.get(userIDInput).getPassword()))
+                    {
+
+                        mainScreen();
+
+                    }
+
+                    else
+                    {
+
+                        JOptionPane.showMessageDialog(loginContentPanel,
+                        "Sorry, this password does not match what is stored with the System Adminsitrator.",
+                        "Password Does Not Match", JOptionPane.PLAIN_MESSAGE);
+
+                    }
 
                 }
 
@@ -659,9 +685,8 @@ public class IA_GUI implements ActionListener, ItemListener, WindowListener, Ser
                 {
 
                     JOptionPane.showMessageDialog(loginContentPanel, 
-                    "Sorry, this ID Number has not been assigned to a user. If you feel this is an error, please contact your adminstrator.",
+                    "Sorry, this Identification Value has not been assigned to a user. If you feel this is an error, please contact your adminstrator.",
                     "ID Does Not Exist", JOptionPane.PLAIN_MESSAGE);
-                    System.out.println("line 660");
 
                 }
 
@@ -671,9 +696,8 @@ public class IA_GUI implements ActionListener, ItemListener, WindowListener, Ser
             {
 
                 JOptionPane.showMessageDialog(loginContentPanel,
-                "Sorry, the ID Number entered is not valid. If you feel this is an error, please contact your adminstrator.",
+                "Sorry, the Identification Value entered is not valid. If you feel this is an error, please contact your adminstrator.",
                 "Invalid ID Number", JOptionPane.PLAIN_MESSAGE);
-                System.out.println("line 672");
 
             }
 

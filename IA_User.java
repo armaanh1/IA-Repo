@@ -35,7 +35,6 @@ public class IA_User implements Serializable{
 
     public static HashMap<Integer, IA_User> Users = new HashMap<>();
 
-
     private String userAddress;
     private String fullName;
     private String firstName;
