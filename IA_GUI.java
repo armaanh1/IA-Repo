@@ -628,6 +628,20 @@ public class IA_GUI implements ActionListener, ItemListener, WindowListener, Ser
 // createNewUserEmployeePosition_isIntern = false;
 // reateNewUserEmployeePosition_isOffSiteTechnician = false;
 
+    public Boolean inputIsInteger(String input)
+    {
+        try 
+        {
+            Integer.parseInt(input);
+            return true;
+        }
+        catch (Exception e) 
+        {
+            return false;
+        }
+
+    }
+
     @Override
     public void actionPerformed(ActionEvent e)
     {
@@ -642,62 +656,84 @@ public class IA_GUI implements ActionListener, ItemListener, WindowListener, Ser
         
             try
             {
+                if(inputIsInteger(userIDInput))
+                {
+                    if(IA_User.Users.containsKey(Integer.parseInt(userIDInput)))
+                    {
                 
-                if(IA_User.Users.containsKey(Integer.parseInt(userIDInput)))
-                {
-            
-                    if(userPasswordInput.equals(IA_User.Users.get(Integer.parseInt(userIDInput)).getUserPassword()))
-                    {
-                        mainScreen();
+                        // checks if user key's password matches entered
+                        if(userPasswordInput.equals(IA_User.Users.get(Integer.parseInt(userIDInput)).getUserPassword()))
+                        {
+                            mainScreen();
+                        }
+                        
+                        // does not match system administrator
+                        else
+                        {
+                            JOptionPane.showMessageDialog(loginContentPanel,
+                            "Sorry, this password does not match what is stored with this account.",
+                            "Password Does Not Match", JOptionPane.PLAIN_MESSAGE);
+                            System.out.println("PASSWORD DOES NOT MATCH USER PASSWORD LINE 676");
+                        }
+
                     }
-                    
+
+                }
+                    // checks if is an admin key
+                    else if(IA_SystemAdministrator.SystemAdministrators.containsKey(userIDInput))
+                    {
+
+                        // checks if admin key's password matches entered
+                        if(userPasswordInput.equals((IA_SystemAdministrator.SystemAdministrators.get(userIDInput)).getPassword()))
+                        {
+
+                            mainScreen();
+
+                            System.out.println("User Entered ID: " + userIDInput);
+                            System.out.println("User Entered Password: " + userPasswordInput);
+                            System.out.println("Admin Username: admin");
+                            System.out.println("Admin Password: defaultpassword");
+                        }
+
+                        // does not match system administrator
+                        else
+                        {
+
+                            JOptionPane.showMessageDialog(loginContentPanel,
+                            "Sorry, this password does not match what is stored with the System Adminsitrator.",
+                            "Password Does Not Match", JOptionPane.PLAIN_MESSAGE);
+                            System.out.println("ID DOES NOT MATCH ADMIN PASSWORD LINE 705");
+                            System.out.println("User Entered ID: " + userIDInput);
+                            System.out.println("User Entered Password: " + userPasswordInput);
+                            System.out.println("Admin Username: admin");
+                            System.out.println("Admin Password: defaultpassword");
+
+                        }
+
+                    }
+
+                    // id is notuser or admin
                     else
                     {
-                        JOptionPane.showMessageDialog(loginContentPanel,
-                        "Sorry, this password does not match what is stored with this account.",
-                        "Password Does Not Match", JOptionPane.PLAIN_MESSAGE);
-                    }
 
-                }
-
-                else if(IA_SystemAdministrator.SystemAdministrators.containsKey(userIDInput))
-                {
-
-                    if(userIDInput.equals(IA_SystemAdministrator.SystemAdministrators.get(userIDInput).getPassword()))
-                    {
-
-                        mainScreen();
+                        JOptionPane.showMessageDialog(loginContentPanel, 
+                        "Sorry, this Identification Value has not been assigned to a user. If you feel this is an error, please contact your adminstrator.",
+                        "ID Does Not Exist", JOptionPane.PLAIN_MESSAGE);
+                        System.out.println("ID NOT ASSIGNED -> NOT USER OR ADMIN");
 
                     }
-
-                    else
-                    {
-
-                        JOptionPane.showMessageDialog(loginContentPanel,
-                        "Sorry, this password does not match what is stored with the System Adminsitrator.",
-                        "Password Does Not Match", JOptionPane.PLAIN_MESSAGE);
-
-                    }
-
-                }
-
-                else
-                {
-
-                    JOptionPane.showMessageDialog(loginContentPanel, 
-                    "Sorry, this Identification Value has not been assigned to a user. If you feel this is an error, please contact your adminstrator.",
-                    "ID Does Not Exist", JOptionPane.PLAIN_MESSAGE);
-
-                }
 
             }
 
+            // id throws error
             catch(Exception ex)
             {
 
                 JOptionPane.showMessageDialog(loginContentPanel,
                 "Sorry, the Identification Value entered is not valid. If you feel this is an error, please contact your adminstrator.",
                 "Invalid ID Number", JOptionPane.PLAIN_MESSAGE);
+                System.out.println("ID ERROR");
+                ex.printStackTrace();
 
             }
 
