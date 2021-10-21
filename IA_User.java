@@ -97,8 +97,6 @@ public class IA_User implements Serializable{
             userIDNumber = (int)Math.floor(Math.random()*(maxID-minID+1)+minID);
         }
 
-        System.out.println(userIDNumber);
-
         if(hasInternetConnection)
         {
             InetAddress localhost = InetAddress.getLocalHost();
@@ -119,7 +117,6 @@ public class IA_User implements Serializable{
 
 
         Users.put(userIDNumber, this);
-        System.out.println(Users.toString());
 
     }
 
@@ -180,7 +177,6 @@ public class IA_User implements Serializable{
         }
 
         Users.put(userIDNumber, this);
-        System.out.println(Users.toString());
         
     }
 

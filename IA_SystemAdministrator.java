@@ -14,7 +14,6 @@ public class IA_SystemAdministrator implements Serializable
 
         systemAdminPassword = pass;
         systemAdminUserName = "admin";
-
         SystemAdministrators.put(systemAdminUserName, this);
 
     }

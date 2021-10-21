@@ -3,7 +3,6 @@ import java.io.Serializable;
 public class IA_Project implements Serializable
 {
 
-    public static Boolean guiIsActive = false;
 
     public static void main(String[] args) throws Exception 
     {

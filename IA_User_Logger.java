@@ -64,6 +64,7 @@ public class IA_User_Logger implements Serializable{
             // id authentication passes and connected to the internet
             if(isConnected)
             {
+            
                 bw.write("  Date: " + formatter.format(date) + "\n");
                 bw.write("  User: " + user.getFirstName() + " " + user.getLastName() + "\n");
                 bw.write("  User ID: " + user.getUserID());
@@ -76,10 +77,12 @@ public class IA_User_Logger implements Serializable{
                 bw.write("          Internal: " + (localhost.getHostAddress()) + "\n");
                 bw.write("          External: " + ipExternal + "\n");
                 bw.flush();
+            
             }
             // id authentication passes and not connected to the internet
             else
             {
+            
                 bw.write("  Date: " + formatter.format(date) + "\n");
                 bw.write("  User: " + user.getFirstName() + " " + user.getLastName() + "\n");
                 bw.write("  User ID: " + user.getUserID());
@@ -89,6 +92,7 @@ public class IA_User_Logger implements Serializable{
                 bw.write("      Version: " + System.getProperty("os.version") + "\n");
                 bw.write("      Architecture: " + System.getProperty("os.arch") + "\n");
                 bw.flush();
+            
             }
         }
         
@@ -98,6 +102,7 @@ public class IA_User_Logger implements Serializable{
             // id authentication fails and connected to the internet
             if(isConnected)
             {
+            
                 bw.write("AUTHENTICATION FAILED: DEVICE SIGNATURE DOES NOT MATCH THAT OF USER \n");
                 bw.write("  Date: " + formatter.format(date) + "\n");
                 bw.write("  User: " + user.getFirstName() + " " + user.getLastName() + "\n");
@@ -111,10 +116,12 @@ public class IA_User_Logger implements Serializable{
                 bw.write("          Internal: " + (localhost.getHostAddress()) + "\n");
                 bw.write("          External: " + ipExternal + "\n");
                 bw.flush();
+            
             }
             // id authentication fails and not connected to the internet
             else 
             {
+            
                 bw.write("AUTHENTICATION FAILED: DEVICE SIGNATURE DOES NOT MATCH THAT OF USER \n");
                 bw.write("  Date: " + formatter.format(date) + "\n");
                 bw.write("  User: " + user.getFirstName() + " " + user.getLastName() + "\n");
@@ -125,6 +132,7 @@ public class IA_User_Logger implements Serializable{
                 bw.write("      Version: " + System.getProperty("os.version") + "\n");
                 bw.write("      Architecture: " + System.getProperty("os.arch") + "\n");
                 bw.flush();
+            
             }
         }
 

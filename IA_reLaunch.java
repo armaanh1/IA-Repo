@@ -26,8 +26,7 @@ public class IA_reLaunch implements Serializable{
         fileIn.close();
         objectIn.close();
 
-
-        FileInputStream fileInput = new FileInputStream("IA_adminstratorINFO.ser");
+        FileInputStream fileInput = new FileInputStream("IA_administratorINFO.ser");
         ObjectInputStream objectInput = new ObjectInputStream(fileInput);
 
         @SuppressWarnings("unchecked")
@@ -37,6 +36,7 @@ public class IA_reLaunch implements Serializable{
 
         fileInput.close();
         objectInput.close();
+
 
     }
 }
