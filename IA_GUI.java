@@ -859,8 +859,6 @@ public class IA_GUI implements ActionListener, ItemListener, WindowListener, Ser
             else
             {
 
-                System.out.println("Employee");
-
                 createNewUserEmployeePosition_isEmployee = true;
                 createNewUserEmployeePosition_isSalesAssociate = false;
                 createNewUserEmployeePosition_isOnSiteTechnician = false;
@@ -893,8 +891,6 @@ public class IA_GUI implements ActionListener, ItemListener, WindowListener, Ser
 
             else
             {
-
-                System.out.println("Sales");
 
                 createNewUserEmployeePosition_isEmployee = false;
                 createNewUserEmployeePosition_isSalesAssociate = true;
@@ -929,8 +925,6 @@ public class IA_GUI implements ActionListener, ItemListener, WindowListener, Ser
             else
             {
 
-                System.out.println("OnSite Tech");
-
                 createNewUserEmployeePosition_isEmployee = false;
                 createNewUserEmployeePosition_isSalesAssociate = false;
                 createNewUserEmployeePosition_isOnSiteTechnician = true;
@@ -964,8 +958,6 @@ public class IA_GUI implements ActionListener, ItemListener, WindowListener, Ser
             else
             {
 
-                System.out.println("hr");
-
                 createNewUserEmployeePosition_isEmployee = false;
                 createNewUserEmployeePosition_isSalesAssociate = false;
                 createNewUserEmployeePosition_isOnSiteTechnician = false;
@@ -996,8 +988,6 @@ public class IA_GUI implements ActionListener, ItemListener, WindowListener, Ser
             }
             else
             {
-
-                System.out.println("intern");
 
                 createNewUserEmployeePosition_isEmployee = false;
                 createNewUserEmployeePosition_isSalesAssociate = false;
