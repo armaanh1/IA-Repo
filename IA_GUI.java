@@ -30,6 +30,7 @@ public class IA_GUI implements ActionListener, ItemListener, WindowListener, Ser
     
     private JPanel loginContentPanel = new JPanel();
     private JPanel newUserContentPanel = new JPanel();
+    private JPanel postLogInPanel = new JPanel();
 
     private JLabel usernameLabel;
     private JLabel passwordLabel;
@@ -155,7 +156,8 @@ public class IA_GUI implements ActionListener, ItemListener, WindowListener, Ser
     private void mainScreen()
     {
         
-        System.out.println("You're logged in!");
+        frame.add(postLogInPanel);
+        
 
     }
 
@@ -613,7 +615,7 @@ public class IA_GUI implements ActionListener, ItemListener, WindowListener, Ser
             else if(createNewUserEmployeePosition_isIntern)
             {
 
-                userSelctedPosition =  "CEO";
+                userSelctedPosition =  "Intern";
 
             }
             
@@ -1058,7 +1060,6 @@ public class IA_GUI implements ActionListener, ItemListener, WindowListener, Ser
         
     }
 
-    @Override
     public void windowClosed(WindowEvent e) {
         
     }
