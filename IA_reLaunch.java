@@ -5,8 +5,6 @@ import java.util.HashMap;
 
 public class IA_reLaunch implements Serializable{
     
-    
-
     public IA_reLaunch() throws Exception
     {
 
@@ -30,13 +28,12 @@ public class IA_reLaunch implements Serializable{
         ObjectInputStream objectInput = new ObjectInputStream(fileInput);
 
         @SuppressWarnings("unchecked")
-        HashMap<String, IA_SystemAdministrator> deSerializeHashMapAdministrator= (HashMap<String, IA_SystemAdministrator>)objectInput.readObject();
+        HashMap<String, IA_SystemAdministrator> deSerializeHashMapAdministrator = (HashMap<String, IA_SystemAdministrator>)objectInput.readObject();
  
         IA_SystemAdministrator.updateHash(deSerializeHashMapAdministrator);
 
         fileInput.close();
         objectInput.close();
-
 
     }
 }

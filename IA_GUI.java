@@ -760,7 +760,8 @@ public class IA_GUI implements ActionListener, ItemListener, WindowListener, Ser
         {
 
             
-            try {
+            try 
+            {
 
                 if(createNewuserMiddleNameIsChecked)
                 {
@@ -793,14 +794,12 @@ public class IA_GUI implements ActionListener, ItemListener, WindowListener, Ser
                     JOptionPane.showMessageDialog(newUserContentPanel,iau.getUserID(),"New Employee ID", JOptionPane.PLAIN_MESSAGE);
 
                 }
-            } catch (Exception e1) {
+            } 
+            catch (Exception e1) 
+            {
                 e1.printStackTrace();
             }
 
-            // private JTextField createNewUserAddresStreetAndHouseNumberTextField;
-            // private JTextField createNewUserAddressCityTextField;
-            // private JTextField createNewUserAddressStateTextField;
-            // private JTextField createNewUserAddressZipCodTextField;
 
         }
 
