@@ -1,16 +1,17 @@
-# Demo
-This project was created for Spring I.T. Services!
+# Internal Assesment Repository README
+## Author(s): Armaan Hirani
+###### Contributors: Cranston Christopheer | Kareem Hirani
 
-UPDATE LOG:
+**Latest Update: Thursday, March 10, 2022 - 11:12 PM**
+Current Mental State (At time of update)
+> I haven't changed any code, but I ran it 50 miles away from where I usually work on my code. Java most likley uses location when deciding whether or not to compile my code.
+```
+try{
+    compile();
+}
+catch (runtime error){
 
-01/19/21
-    Started main log-in screen GUI
-        ie. transfering dimensions from hard-coded to relative to screen size
-            customizing gui to customer specifications, implementing logos, created corresponding folder for images
-    
-    ERROR LOG:
-    Exception in thread "main" java.io.StreamCorruptedException: invalid stream header: EFBFBDEF
-	at java.base/java.io.ObjectInputStream.readStreamHeader(ObjectInputStream.java:955)
-	at java.base/java.io.ObjectInputStream.<init>(ObjectInputStream.java:394)
-	at IA_reLaunch.launch(IA_reLaunch.java:19)
-	at IA_GUI.runProgram(IA_GUI.java:113)
+    compile();
+    // get wrecked java
+}
+```
