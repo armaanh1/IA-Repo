@@ -100,17 +100,15 @@ public class IA_GUI implements ActionListener, ItemListener, WindowListener, Ser
     public void runProgram() throws Exception
     {
 
-        if(IA_SystemAdministrator.SystemAdministrators.isEmpty())
-        {
-            new IA_SystemAdministrator("defaultpassword");
-        }
-       System.out.println(IA_SystemAdministrator.SystemAdministrators.toString());
-       System.out.println(IA_SystemAdministrator.SystemAdministrators.keySet());
-
-       frame.addWindowListener(this);
-
         IA_reLaunch rl = new IA_reLaunch();
         rl.launch();
+
+        if(IA_SystemAdministrator.SystemAdministrators.isEmpty())
+        {
+            new IA_SystemAdministrator("admin", "admin");
+        }
+
+        frame.addWindowListener(this);
 
         frame.setSize((int)screenWidth-1, (int)screenHeight-1);
         frame.setResizable(true);
@@ -158,7 +156,6 @@ public class IA_GUI implements ActionListener, ItemListener, WindowListener, Ser
         
         frame.add(postLogInPanel);
         
-
     }
 
     private void newUserScreen()
@@ -630,15 +627,7 @@ public class IA_GUI implements ActionListener, ItemListener, WindowListener, Ser
     
     }
 
-
-// createNewUserEmployeePosition_isEmployee = false;
-// createNewUserEmployeePosition_isSalesAssociate = false;
-// createNewUserEmployeePosition_isOnSiteTechnician = false;
-// createNewUserEmployeePosition_isHumanResources = false;
-// createNewUserEmployeePosition_isIntern = false;
-// reateNewUserEmployeePosition_isOffSiteTechnician = false;
-
-    public Boolean inputIsInteger(String input)
+    public boolean inputIsInteger(String input)
     {
         try 
         {
@@ -660,9 +649,7 @@ public class IA_GUI implements ActionListener, ItemListener, WindowListener, Ser
         {
           
             userIDInput = usernameTextField.getText();
-            System.out.println(userIDInput);
             userPasswordInput = String.valueOf(passwordPasswordField.getPassword());
-            System.out.println(userPasswordInput);
         
             try
             {
@@ -683,7 +670,6 @@ public class IA_GUI implements ActionListener, ItemListener, WindowListener, Ser
                             JOptionPane.showMessageDialog(loginContentPanel,
                             "Sorry, this password does not match what is stored with this account.",
                             "Password Does Not Match", JOptionPane.PLAIN_MESSAGE);
-                            System.out.println("PASSWORD DOES NOT MATCH USER PASSWORD LINE 676");
                         }
 
                     }
@@ -697,12 +683,28 @@ public class IA_GUI implements ActionListener, ItemListener, WindowListener, Ser
                         if(userPasswordInput.equals((IA_SystemAdministrator.SystemAdministrators.get(userIDInput)).getPassword()))
                         {
 
+                            /* 
+                            
+                            CODE INSIDE OF THIS BLOCKED OCCURS WHEN:
+                            1. INPUT IS NOT AN INTEGER
+                            2.THE HASHMAP CONTAING SYSTEM ADMINISTRATORS CONTAINS THE ENTERED USERNAME (KEY)
+                            3. THE PASSWORD MATCHES WITH WHAT IS STORED WHEN THE CURRENT KEY IS EXECUTED AS
+                                A. let user id input = uid
+                                B. let user password input = upass
+                                    - if(IA_SystemAdministrator.SystemAdministrators.containsKey(uid))
+                                        if(userPasswordInput.equals((IA_SystemAdministrator.SystemAdministrators.get(userIDInput)).getPassword()))
+                            
+                            */
                             mainScreen();
 
                             System.out.println("User Entered ID: " + userIDInput);
                             System.out.println("User Entered Password: " + userPasswordInput);
                             System.out.println("Admin Username: admin");
-                            System.out.println("Admin Password: defaultpassword");
+                            System.out.println("Admin Password: admin");
+                            System.out.println("This works!");
+                            JOptionPane.showMessageDialog(loginContentPanel,
+                            "we workin!",
+                            "we workin!", JOptionPane.PLAIN_MESSAGE);
                         }
 
                         // does not match system administrator
@@ -712,11 +714,10 @@ public class IA_GUI implements ActionListener, ItemListener, WindowListener, Ser
                             JOptionPane.showMessageDialog(loginContentPanel,
                             "Sorry, this password does not match what is stored with the System Adminsitrator.",
                             "Password Does Not Match", JOptionPane.PLAIN_MESSAGE);
-                            System.out.println("ID DOES NOT MATCH ADMIN PASSWORD LINE 705");
                             System.out.println("User Entered ID: " + userIDInput);
                             System.out.println("User Entered Password: " + userPasswordInput);
                             System.out.println("Admin Username: admin");
-                            System.out.println("Admin Password: defaultpassword");
+                            System.out.println("Admin Password: admin");
 
                         }
 
@@ -810,6 +811,7 @@ public class IA_GUI implements ActionListener, ItemListener, WindowListener, Ser
             {
                 cpr = new IA_closeProgram();
                 cpr.close();
+                System.exit(0);
             } 
             catch (Exception e1) 
             {
